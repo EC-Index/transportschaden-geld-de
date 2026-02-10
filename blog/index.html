@@ -1,0 +1,442 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Blog: AGB-Analysen und Transportschadenrecht | transportschaden-geld.de</title>
+    <meta name="description" content="9 Frachtplattformen analysiert, 55+ problematische Klauseln dokumentiert. Jede AGB gelesen, jede Klausel dem Gesetz gegenübergestellt. Alle Artikel im Überblick.">
+    <meta name="robots" content="index, follow">
+    <link rel="canonical" href="https://transportschaden-geld.de/blog/">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;0,9..40,600;0,9..40,700;1,9..40,400&family=Instrument+Serif:ital@0;1&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --bg: #0C0F0E;
+            --bg-card: #151A18;
+            --accent: #2ECC71;
+            --accent-dim: rgba(46, 204, 113, 0.15);
+            --text: #E8EDE9;
+            --text-dim: #8A9B8E;
+            --text-mid: #B4C4B8;
+            --border: #2A332D;
+            --danger: #E74C3C;
+            --warning: #F39C12;
+            --white: #FFFFFF;
+        }
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        html { scroll-behavior: smooth; }
+        body { font-family: 'DM Sans', sans-serif; background: var(--bg); color: var(--text); line-height: 1.8; }
+
+        nav {
+            position: fixed; top: 0; left: 0; right: 0; z-index: 100;
+            padding: 1.2rem 2rem;
+            display: flex; justify-content: space-between; align-items: center;
+            background: rgba(12, 15, 14, 0.85);
+            backdrop-filter: blur(20px);
+            border-bottom: 1px solid var(--border);
+        }
+        .logo { font-weight: 700; font-size: 1.1rem; color: var(--text); text-decoration: none; display: flex; align-items: center; gap: 0.5rem; }
+        .logo-mark { width: 30px; height: 30px; background: linear-gradient(135deg, var(--accent), #1a9c54); border-radius: 8px; display: flex; align-items: center; justify-content: center; flex-shrink: 0; color: var(--bg); }
+        .logo span:not(.logo-mark) { color: var(--text); } .logo-text span { color: var(--accent); }
+        .nav-links { display: flex; align-items: center; gap: 1.5rem; }
+        .nav-link { color: var(--text-mid); font-size: 0.85rem; font-weight: 500; text-decoration: none; transition: color 0.2s; }
+        .nav-link:hover { color: var(--accent); }
+        nav a.cta-nav {
+            background: var(--accent); color: var(--bg); text-decoration: none;
+            padding: 0.6rem 1.4rem; border-radius: 6px; font-weight: 600; font-size: 0.85rem;
+            transition: all 0.2s;
+        }
+        nav a.cta-nav:hover { background: #27AE60; transform: translateY(-1px); }
+
+        .hero {
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 8rem 2rem 3rem;
+        }
+
+        h1 {
+            font-family: 'Instrument Serif', serif;
+            font-size: clamp(2rem, 4.5vw, 2.8rem);
+            line-height: 1.15; font-weight: 400; color: var(--white); margin-bottom: 1rem;
+        }
+        h1 em { font-style: italic; color: var(--accent); }
+
+        .hero-sub {
+            font-size: 1.05rem;
+            color: var(--text-mid);
+            max-width: 600px;
+        }
+
+        .stats-bar {
+            display: flex;
+            gap: 2rem;
+            margin-top: 2rem;
+            padding-top: 2rem;
+            border-top: 1px solid var(--border);
+        }
+
+        .stat-item {
+            text-align: center;
+        }
+
+        .stat-num {
+            font-family: 'Instrument Serif', serif;
+            font-size: 1.8rem;
+            color: var(--accent);
+            line-height: 1;
+        }
+
+        .stat-label {
+            font-size: 0.7rem;
+            color: var(--text-dim);
+            text-transform: uppercase;
+            letter-spacing: 0.08em;
+            margin-top: 0.2rem;
+        }
+
+        .articles {
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 0 2rem 4rem;
+        }
+
+        .section-label {
+            font-size: 0.7rem;
+            text-transform: uppercase;
+            letter-spacing: 0.15em;
+            color: var(--accent);
+            font-weight: 600;
+            margin-bottom: 1.5rem;
+            margin-top: 3rem;
+        }
+
+        .article-card {
+            display: block;
+            background: var(--bg-card);
+            border: 1px solid var(--border);
+            border-radius: 12px;
+            padding: 2rem;
+            text-decoration: none;
+            transition: all 0.3s;
+            margin-bottom: 1rem;
+        }
+
+        .article-card:hover {
+            border-color: rgba(46, 204, 113, 0.3);
+            transform: translateY(-2px);
+            text-decoration: none;
+        }
+
+        .card-top {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+            gap: 1rem;
+            margin-bottom: 0.6rem;
+        }
+
+        .card-badge {
+            display: inline-block;
+            font-size: 0.65rem;
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+            font-weight: 700;
+            padding: 0.2rem 0.6rem;
+            border-radius: 4px;
+            white-space: nowrap;
+        }
+
+        .badge-agb {
+            color: var(--danger);
+            background: rgba(231, 76, 60, 0.12);
+        }
+
+        .badge-website {
+            color: var(--warning);
+            background: rgba(243, 156, 18, 0.12);
+        }
+
+        .badge-ratgeber {
+            color: var(--accent);
+            background: var(--accent-dim);
+        }
+
+        .card-count {
+            font-size: 0.75rem;
+            color: var(--text-dim);
+            white-space: nowrap;
+        }
+
+        .article-card h3 {
+            font-size: 1.1rem;
+            font-weight: 600;
+            color: var(--white);
+            margin-bottom: 0.5rem;
+            line-height: 1.4;
+        }
+
+        .article-card p {
+            font-size: 0.88rem;
+            color: var(--text-dim);
+            margin-bottom: 0.8rem;
+            line-height: 1.6;
+        }
+
+        .card-tags {
+            display: flex;
+            gap: 0.5rem;
+            flex-wrap: wrap;
+        }
+
+        .tag {
+            font-size: 0.7rem;
+            color: var(--text-dim);
+            background: rgba(42, 51, 45, 0.8);
+            padding: 0.15rem 0.5rem;
+            border-radius: 3px;
+        }
+
+        .card-link {
+            font-size: 0.85rem;
+            color: var(--accent);
+            font-weight: 600;
+        }
+
+        .cta-box {
+            background: var(--bg-card); border: 1px solid var(--border); border-radius: 12px;
+            padding: 2.5rem; margin: 3rem 0; text-align: center; position: relative; overflow: hidden;
+        }
+        .cta-box::before { content: ''; position: absolute; top: 0; left: 0; right: 0; height: 3px; background: linear-gradient(90deg, var(--accent), rgba(46, 204, 113, 0.2)); }
+        .cta-box h3 { font-family: 'Instrument Serif', serif; font-size: 1.5rem; font-weight: 400; color: var(--white); margin-bottom: 0.8rem; }
+        .cta-box p { color: var(--text-dim); margin-bottom: 1.5rem; font-size: 0.95rem; }
+        .cta-btn {
+            display: inline-flex; align-items: center; gap: 0.5rem;
+            background: var(--accent); color: var(--bg); text-decoration: none;
+            padding: 0.9rem 2rem; border-radius: 8px; font-weight: 700; font-size: 0.95rem;
+            transition: all 0.25s;
+        }
+        .cta-btn:hover { background: #27AE60; transform: translateY(-2px); box-shadow: 0 8px 30px rgba(46, 204, 113, 0.25); text-decoration: none; }
+
+        .footer-links {
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 2rem;
+            border-top: 1px solid var(--border);
+            display: flex;
+            gap: 1.5rem;
+            flex-wrap: wrap;
+            font-size: 0.82rem;
+        }
+        .footer-links a { color: var(--text-dim); text-decoration: none; }
+        .footer-links a:hover { color: var(--accent); }
+
+        @media (max-width: 768px) {
+            nav { padding: 0.8rem 1rem; }
+            .nav-link { font-size: 0.75rem; }
+            .hero { padding: 5.5rem 1.2rem 2rem; }
+            h1 { font-size: 1.8rem; }
+            .articles { padding: 0 1.2rem 3rem; }
+            .article-card { padding: 1.5rem 1.2rem; }
+            .stats-bar { gap: 1.2rem; flex-wrap: wrap; }
+        }
+
+        @media (max-width: 380px) {
+            .nav-link { display: none; }
+            .stats-bar { display: grid; grid-template-columns: 1fr 1fr; }
+        }
+    </style>
+</head>
+<body>
+
+<nav>
+    <a href="/" class="logo"><span class="logo-mark"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg></span><span class="logo-text">transportschaden<span>-geld</span>.de</span></a>
+    <div class="nav-links">
+        <a href="/ueber-uns.html" class="nav-link">Über uns</a>
+        <a href="/#formular" class="cta-nav">Forderung melden →</a>
+    </div>
+</nav>
+
+<div class="hero">
+    <h1>Jede AGB gelesen. <em>Jede Klausel geprüft.</em></h1>
+    <p class="hero-sub">
+        Wir analysieren die AGB und öffentlichen Seiten der größten deutschen Frachtplattformen. Jede Klausel wird dem Gesetz gegenübergestellt. Alle Bewertungen sind unsere persönliche Einschätzung.
+    </p>
+    <div class="stats-bar">
+        <div class="stat-item">
+            <div class="stat-num">9</div>
+            <div class="stat-label">Plattformen</div>
+        </div>
+        <div class="stat-item">
+            <div class="stat-num">55+</div>
+            <div class="stat-label">Klauseln</div>
+        </div>
+        <div class="stat-item">
+            <div class="stat-num">1</div>
+            <div class="stat-label">§ 435 korrekt</div>
+        </div>
+    </div>
+</div>
+
+<div class="articles">
+
+    <div class="section-label">AGB-Analysen</div>
+
+    <a href="/blog/letmeship-erfahrung-agb-analyse.html" class="article-card">
+        <div class="card-top">
+            <span class="card-badge badge-agb">AGB-Analyse</span>
+            <span class="card-count">7 Klauseln</span>
+        </div>
+        <h3>LetMeShip: Die aggressivsten AGB der Branche</h3>
+        <p>Haftung auf 2 SDR/kg, Abtretung verboten, Diebstahl als Haftungsausschluss, Meistbegünstigung für LetMeShip. Kein anderer geht so weit.</p>
+        <div class="card-tags">
+            <span class="tag">§ 435 verschleiert</span>
+            <span class="tag">Abtretungsverbot</span>
+            <span class="tag">2 SDR/kg</span>
+        </div>
+    </a>
+
+    <a href="/blog/koch-international-erfahrung-agb-analyse.html" class="article-card">
+        <div class="card-top">
+            <span class="card-badge badge-agb">AGB-Analyse</span>
+            <span class="card-count">6 Klauseln</span>
+        </div>
+        <h3>Koch International: Versicherung ersetzt Haftung</h3>
+        <p>Wer über Koch versichert, verliert seinen gesetzlichen Anspruch gegen Koch. ADSp 2017, § 435 HGB unerwähnt.</p>
+        <div class="card-tags">
+            <span class="tag">Versicherung = Haftungsersatz</span>
+            <span class="tag">ADSp 2017</span>
+            <span class="tag">§ 435 fehlt</span>
+        </div>
+    </a>
+
+    <a href="/blog/jumingo-erfahrung-agb-analyse.html" class="article-card">
+        <div class="card-top">
+            <span class="card-badge badge-agb">AGB-Analyse</span>
+            <span class="card-count">8 Klauseln</span>
+        </div>
+        <h3>JUMiNGO: Zwei Rechtsordnungen, eine Plattform</h3>
+        <p>Website sagt A, AGB sagen B. § 435 HGB in den AGB erwähnt, auf der Website verschwiegen. 8 problematische Klauseln.</p>
+        <div class="card-tags">
+            <span class="tag">Widerspruch Website/AGB</span>
+            <span class="tag">8 Klauseln</span>
+        </div>
+    </a>
+
+    <a href="/blog/cargo-international-erfahrung-agb-analyse.html" class="article-card">
+        <div class="card-top">
+            <span class="card-badge badge-agb">AGB-Analyse</span>
+            <span class="card-count">6 Klauseln</span>
+        </div>
+        <h3>Cargo International: 6 problematische AGB-Klauseln</h3>
+        <p>Eigenversicherung statt Haftpflicht, Verpackung als Allzweckwaffe, § 435 HGB fehlt komplett.</p>
+        <div class="card-tags">
+            <span class="tag">Eigenversicherung</span>
+            <span class="tag">§ 435 fehlt</span>
+        </div>
+    </a>
+
+    <a href="/blog/cargoboard-agb-analyse.html" class="article-card">
+        <div class="card-top">
+            <span class="card-badge badge-agb">AGB-Analyse</span>
+            <span class="card-count">7 Klauseln</span>
+        </div>
+        <h3>Cargoboard AGB: 7 Klauseln, die Kundenrechte einschränken</h3>
+        <p>Aufrechnungsverbot, Verpackungsmangel ohne Beweislast, § 435 HGB verschwiegen.</p>
+        <div class="card-tags">
+            <span class="tag">Aufrechnungsverbot</span>
+            <span class="tag">§ 435 fehlt</span>
+        </div>
+    </a>
+
+    <a href="/blog/cargolo-erfahrung-agb-analyse.html" class="article-card">
+        <div class="card-top">
+            <span class="card-badge badge-agb">AGB-Analyse</span>
+            <span class="card-count">6 Klauseln</span>
+        </div>
+        <h3>Cargolo: Italien nur 1 €/kg Haftung</h3>
+        <p>§ 435 HGB fehlt, ADSp ohne Versionsangabe, und die niedrigste länderspezifische Haftung der Branche.</p>
+        <div class="card-tags">
+            <span class="tag">1 €/kg Italien</span>
+            <span class="tag">ADSp unklar</span>
+            <span class="tag">§ 435 fehlt</span>
+        </div>
+    </a>
+
+    <a href="/blog/dhl-paket-erfahrung-agb-analyse.html" class="article-card">
+        <div class="card-top">
+            <span class="card-badge badge-agb">AGB-Analyse</span>
+            <span class="card-count">4 Klauseln</span>
+        </div>
+        <h3>DHL Paket/Express: Was DHL besser macht, und was trotzdem fehlt</h3>
+        <p>§ 435 HGB inhaltlich korrekt abgebildet, Geldforderungen abtretbar, 500 € Selbstverzicht. Aber Versicherung als Obliegenheit und Folgeschäden ausgeschlossen.</p>
+        <div class="card-tags">
+            <span class="tag">§ 435 korrekt</span>
+            <span class="tag">Abtretung erlaubt</span>
+            <span class="tag">Versicherungspush</span>
+        </div>
+    </a>
+
+    <div class="section-label">Website-Analysen</div>
+
+    <a href="/blog/cargoboard-erfahrung-transportschaden.html" class="article-card">
+        <div class="card-top">
+            <span class="card-badge badge-website">Website-Analyse</span>
+            <span class="card-count">11 Fehler</span>
+        </div>
+        <h3>Cargoboard: 11 Fehler auf drei Seiten</h3>
+        <p>Help-Center, Schadensabwicklung, Schadensfall-Ablauf: Wie Cargoboard systematisch Kundenrechte auf der Website verschweigt.</p>
+        <div class="card-tags">
+            <span class="tag">Help-Center</span>
+            <span class="tag">Schadensabwicklung</span>
+            <span class="tag">11 Fehler</span>
+        </div>
+    </a>
+
+    <a href="/blog/pamyra-erfahrung-transportschaden.html" class="article-card">
+        <div class="card-top">
+            <span class="card-badge badge-website">Website-Analyse</span>
+            <span class="card-count">5 Fehler</span>
+        </div>
+        <h3>Pamyra: 5 Fehler auf der Transportschaden-Seite</h3>
+        <p>Versicherung als einziger Weg zur Absicherung, § 435 HGB verschwiegen, Beweislast falsch dargestellt.</p>
+        <div class="card-tags">
+            <span class="tag">Versicherung als einziger Weg</span>
+            <span class="tag">§ 435 fehlt</span>
+        </div>
+    </a>
+
+    <div class="section-label">Ratgeber</div>
+
+    <a href="/blog/transportschaden-rechte-ratgeber.html" class="article-card">
+        <div class="card-top">
+            <span class="card-badge badge-ratgeber">Ratgeber</span>
+        </div>
+        <h3>Transportschaden: Ihre Rechte als Versender. Was Ihnen wirklich zusteht</h3>
+        <p>Der vollständige Ratgeber. Obhutshaftung, Beweislast, Fristen, § 435 HGB, Versicherung, Fixkostenspediteur. Alles, was die Plattformen nicht erzählen.</p>
+        <div class="card-tags">
+            <span class="tag">§§ 425 ff. HGB</span>
+            <span class="tag">§ 435 HGB</span>
+            <span class="tag">Beweislast</span>
+            <span class="tag">Fristen</span>
+        </div>
+    </a>
+
+    <div class="cta-box">
+        <h3>Transportschaden? Wir kaufen Ihre Forderung.</h3>
+        <p>Kostenlos, unverbindlich, diskret. Wenn wir kaufen, bekommen Sie sofort Geld.</p>
+        <a href="/#formular" class="cta-btn">Fall jetzt melden →</a>
+    </div>
+</div>
+
+<div class="footer-links">
+    <a href="/">Startseite</a>
+    <a href="/ueber-uns.html">Über uns</a>
+    <a href="/#formular">Forderung melden</a>
+    <a href="/impressum.html">Impressum</a>
+    <a href="/datenschutz.html">Datenschutz</a>
+</div>
+
+</body>
+</html>
