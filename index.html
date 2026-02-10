@@ -161,17 +161,36 @@
         }
 
         nav a {
+            text-decoration: none;
+            transition: all 0.2s;
+        }
+
+        .nav-links {
+            display: flex;
+            align-items: center;
+            gap: 1.5rem;
+        }
+
+        .nav-link {
+            color: var(--text-mid);
+            font-size: 0.85rem;
+            font-weight: 500;
+        }
+
+        .nav-link:hover {
+            color: var(--accent);
+        }
+
+        .nav-cta {
             background: var(--accent);
             color: var(--bg);
-            text-decoration: none;
             padding: 0.6rem 1.4rem;
             border-radius: 6px;
             font-weight: 600;
             font-size: 0.85rem;
-            transition: all 0.2s;
         }
 
-        nav a:hover {
+        .nav-cta:hover {
             background: #27AE60;
             transform: translateY(-1px);
         }
@@ -703,6 +722,73 @@
             opacity: 0.6;
         }
 
+        /* --- BLOG TEASER --- */
+        .blog-teaser {
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 6rem 2rem;
+        }
+
+        .blog-teaser-inner {
+            max-width: 900px;
+        }
+
+        .blog-card {
+            display: block;
+            background: var(--bg-card);
+            border: 1px solid var(--border);
+            border-radius: 12px;
+            padding: 2rem;
+            text-decoration: none;
+            transition: all 0.3s;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .blog-card:hover {
+            border-color: rgba(46, 204, 113, 0.3);
+            transform: translateY(-3px);
+            text-decoration: none;
+        }
+
+        .blog-card-badge {
+            display: inline-block;
+            font-size: 0.7rem;
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+            color: var(--accent);
+            font-weight: 700;
+            background: var(--accent-dim);
+            padding: 0.2rem 0.6rem;
+            border-radius: 4px;
+            margin-bottom: 0.8rem;
+        }
+
+        .blog-card h3 {
+            font-size: 1.15rem;
+            font-weight: 600;
+            color: var(--white);
+            margin-bottom: 0.6rem;
+            line-height: 1.4;
+        }
+
+        .blog-card p {
+            font-size: 0.9rem;
+            color: var(--text-dim);
+            margin-bottom: 1rem;
+            line-height: 1.5;
+        }
+
+        .blog-card-link {
+            font-size: 0.85rem;
+            font-weight: 600;
+            color: var(--accent);
+        }
+
+        .blog-card:hover .blog-card-link {
+            text-decoration: underline;
+        }
+
         /* --- CONSENT CHECKBOX --- */
         .consent-group {
             margin-top: 0.5rem;
@@ -907,7 +993,10 @@
 <!-- NAV -->
 <nav>
     <div class="logo">transportschaden<span>-geld</span>.de</div>
-    <a href="#formular">Forderung melden →</a>
+    <div class="nav-links">
+        <a href="/blog/cargoboard-erfahrung-transportschaden.html" class="nav-link">Blog</a>
+        <a href="#formular" class="nav-cta">Forderung melden →</a>
+    </div>
 </nav>
 
 <!-- HERO -->
@@ -1035,6 +1124,7 @@
                     <option value="UPS">UPS</option>
                     <option value="DHL Freight">DHL Freight</option>
                     <option value="DB Schenker">DB Schenker</option>
+                    <option value="Cargo International">Cargo International</option>
                     <option value="Andere">Andere Spedition</option>
                 </select>
             </div>
@@ -1111,6 +1201,26 @@
     </div>
 </section>
 
+<!-- BLOG TEASER -->
+<section class="blog-teaser">
+    <div class="blog-teaser-inner">
+        <div class="section-label">Blog</div>
+        <h2>Ihre Rechte bei Transportschäden</h2>
+        <a href="/blog/cargoboard-erfahrung-transportschaden.html" class="blog-card">
+            <div class="blog-card-badge">Analyse</div>
+            <h3>Cargoboard Erfahrung: Wie die Frachtplattform Kunden bei Transportschäden systematisch benachteiligt</h3>
+            <p>5 konkrete Fehler und Irreführungen auf der offiziellen Cargoboard Help-Seite. Was Ihnen verschwiegen wird und was Ihnen wirklich zusteht.</p>
+            <span class="blog-card-link">Artikel lesen →</span>
+        </a>
+        <a href="/blog/cargo-international-erfahrung-agb-analyse.html" class="blog-card" style="margin-top: 1rem;">
+            <div class="blog-card-badge">AGB-Analyse</div>
+            <h3>Cargo International: 6 problematische Klauseln in den AGB der Online-Spedition</h3>
+            <p>Zwingende CMR-Rechte ausgeschlossen, Warnhinweise ignoriert, Lieferfristen pauschal abgelehnt. Was in den AGB steht und was davon wirksam ist.</p>
+            <span class="blog-card-link">Artikel lesen →</span>
+        </a>
+    </div>
+</section>
+
 <!-- FOOTER -->
 <footer>
     <div class="footer-top">
@@ -1134,9 +1244,10 @@
             E-Mail: <a href="mailto:info@montitech.de" style="color: var(--accent); text-decoration: none;">info@montitech.de</a>
         </div>
         <div class="legal-links">
-            <a href="/datenschutz.html">Datenschutz</a>
             <a href="/impressum.html">Impressum</a>
+            <a href="/datenschutz.html">Datenschutz</a>
             <a href="/agb.html">AGB</a>
+            <a href="/blog/cargoboard-erfahrung-transportschaden.html">Blog</a>
         </div>
         <p class="copyright">© 2026 Monti Technology GmbH. Alle Rechte vorbehalten.</p>
     </div>
