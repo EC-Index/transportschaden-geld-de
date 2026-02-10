@@ -1,0 +1,306 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Über uns | transportschaden-geld.de</title>
+    <meta name="description" content="Seit 2013 in der Logistik. Als eCommerce-Unternehmer habe ich selbst erlebt, wie Spediteure Kunden bei Transportschäden abspeisen. Jetzt decke ich auf.">
+    <meta name="robots" content="index, follow">
+    <link rel="canonical" href="https://transportschaden-geld.de/ueber-uns.html">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;0,9..40,600;0,9..40,700;1,9..40,400&family=Instrument+Serif:ital@0;1&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --bg: #0C0F0E;
+            --bg-card: #151A18;
+            --accent: #2ECC71;
+            --accent-dim: rgba(46, 204, 113, 0.15);
+            --text: #E8EDE9;
+            --text-dim: #8A9B8E;
+            --text-mid: #B4C4B8;
+            --border: #2A332D;
+            --white: #FFFFFF;
+        }
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        html { scroll-behavior: smooth; }
+        body {
+            font-family: 'DM Sans', sans-serif;
+            background: var(--bg);
+            color: var(--text);
+            line-height: 1.8;
+        }
+
+        nav {
+            position: fixed; top: 0; left: 0; right: 0; z-index: 100;
+            padding: 1.2rem 2rem;
+            display: flex; justify-content: space-between; align-items: center;
+            background: rgba(12, 15, 14, 0.85);
+            backdrop-filter: blur(20px);
+            border-bottom: 1px solid var(--border);
+        }
+        .logo { font-weight: 700; font-size: 1.1rem; color: var(--text); text-decoration: none; }
+        .logo span { color: var(--accent); }
+        nav a.cta-nav {
+            background: var(--accent); color: var(--bg); text-decoration: none;
+            padding: 0.6rem 1.4rem; border-radius: 6px; font-weight: 600; font-size: 0.85rem;
+            transition: all 0.2s;
+        }
+        nav a.cta-nav:hover { background: #27AE60; transform: translateY(-1px); }
+
+        article {
+            max-width: 720px;
+            margin: 0 auto;
+            padding: 8rem 2rem 4rem;
+        }
+
+        h1 {
+            font-family: 'Instrument Serif', serif;
+            font-size: clamp(2rem, 4.5vw, 2.8rem);
+            line-height: 1.15;
+            font-weight: 400;
+            color: var(--white);
+            margin-bottom: 1.5rem;
+        }
+
+        h1 em { font-style: italic; color: var(--accent); }
+
+        .intro {
+            font-size: 1.1rem;
+            color: var(--text-mid);
+            margin-bottom: 3rem;
+            padding-bottom: 2rem;
+            border-bottom: 1px solid var(--border);
+        }
+
+        h2 {
+            font-family: 'Instrument Serif', serif;
+            font-size: 1.6rem;
+            font-weight: 400;
+            color: var(--white);
+            margin-top: 3rem;
+            margin-bottom: 1rem;
+            line-height: 1.2;
+        }
+
+        p {
+            font-size: 0.95rem;
+            color: var(--text-mid);
+            margin-bottom: 1.2rem;
+        }
+
+        a { color: var(--accent); text-decoration: none; }
+        a:hover { text-decoration: underline; }
+
+        .highlight {
+            background: var(--accent-dim);
+            border-left: 3px solid var(--accent);
+            padding: 1.2rem 1.5rem;
+            margin: 1.5rem 0;
+            border-radius: 0 8px 8px 0;
+        }
+
+        .highlight p {
+            color: var(--text);
+            margin-bottom: 0;
+            font-size: 1rem;
+        }
+
+        .stats {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 1rem;
+            margin: 2rem 0;
+        }
+
+        .stat {
+            background: var(--bg-card);
+            border: 1px solid var(--border);
+            border-radius: 12px;
+            padding: 1.5rem;
+            text-align: center;
+        }
+
+        .stat-number {
+            font-family: 'Instrument Serif', serif;
+            font-size: 2rem;
+            color: var(--accent);
+            line-height: 1;
+            margin-bottom: 0.3rem;
+        }
+
+        .stat-label {
+            font-size: 0.75rem;
+            color: var(--text-dim);
+            text-transform: uppercase;
+            letter-spacing: 0.08em;
+        }
+
+        .cta-box {
+            background: var(--bg-card);
+            border: 1px solid var(--border);
+            border-radius: 12px;
+            padding: 2.5rem;
+            margin: 3rem 0;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .cta-box::before {
+            content: '';
+            position: absolute;
+            top: 0; left: 0; right: 0;
+            height: 3px;
+            background: linear-gradient(90deg, var(--accent), rgba(46, 204, 113, 0.2));
+        }
+
+        .cta-box h3 {
+            font-family: 'Instrument Serif', serif;
+            font-size: 1.5rem;
+            font-weight: 400;
+            color: var(--white);
+            margin-bottom: 0.8rem;
+        }
+
+        .cta-box p {
+            color: var(--text-dim);
+            margin-bottom: 1.5rem;
+        }
+
+        .cta-btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            background: var(--accent);
+            color: var(--bg);
+            text-decoration: none;
+            padding: 0.9rem 2rem;
+            border-radius: 8px;
+            font-weight: 700;
+            font-size: 0.95rem;
+            transition: all 0.25s;
+        }
+
+        .cta-btn:hover {
+            background: #27AE60;
+            transform: translateY(-2px);
+            box-shadow: 0 8px 30px rgba(46, 204, 113, 0.25);
+            text-decoration: none;
+        }
+
+        .article-footer {
+            margin-top: 4rem;
+            padding-top: 2rem;
+            border-top: 1px solid var(--border);
+        }
+
+        .footer-links {
+            display: flex;
+            gap: 1.5rem;
+            flex-wrap: wrap;
+            font-size: 0.82rem;
+        }
+
+        @media (max-width: 600px) {
+            article { padding: 6rem 1.2rem 3rem; }
+            nav { padding: 1rem 1.2rem; }
+            h1 { font-size: 1.8rem; }
+            .stats { grid-template-columns: 1fr; }
+        }
+    </style>
+</head>
+<body>
+
+<nav>
+    <a href="/" class="logo">transportschaden<span>-geld</span>.de</a>
+    <a href="/#formular" class="cta-nav">Fall melden →</a>
+</nav>
+
+<article>
+
+    <h1>Über 10 Jahre Logistik. <em>Jetzt decke ich auf.</em></h1>
+
+    <p class="intro">
+        Mein Name ist Thomas Kiene. Seit 2013 bin ich in der Logistikbranche. Als Geschäftsführer mehrerer eCommerce-Unternehmen habe ich hunderte Sendungen pro Woche verschickt und dabei erlebt, wie das Spiel im Schadensfall läuft. Jetzt stehe ich auf der anderen Seite.
+    </p>
+
+    <h2>Wie alles angefangen hat</h2>
+
+    <p>Wer im eCommerce arbeitet, verschickt Ware. Viel Ware. Und irgendwann kommt der erste Schaden: Palette zerbrochen, Sendung verschwunden, Ware beschädigt angekommen. Das gehört dazu. Was nicht dazugehört: wie Spediteure und ihre Versicherer mit Schadensfällen umgehen.</p>
+
+    <p>Ich habe über die Jahre ein Muster beobachtet. Die Spedition verweist auf den Versicherer. Der Versicherer verlangt Unterlagen, die man kaum beschaffen kann. Dann kommt die Ablehnung. Verpackungsmangel, zu spät gemeldet, Unterversicherung. Oder ein Angebot über einen Bruchteil des Schadens, freundlich verpackt als „Kulanzregelung".</p>
+
+    <p>Irgendwann habe ich angefangen, die AGB zu lesen. Nicht die Zusammenfassungen, nicht die FAQ-Seiten, sondern die AGB selbst, die Versicherungsbedingungen, das Handelsgesetzbuch. Und ich habe festgestellt: Was die Plattformen ihren Kunden erzählen und was das Gesetz sagt, sind oft zwei verschiedene Dinge.</p>
+
+    <h2>Was ich gefunden habe</h2>
+
+    <p>Ich habe die AGB und öffentlichen Seiten der größten deutschen Frachtplattformen analysiert. Nicht als Anwalt, sondern als Praktiker, der die Branche kennt und lesen kann. Das Ergebnis:</p>
+
+    <div class="highlight">
+        <p>Jede einzelne Plattform, die ich bisher analysiert habe, stellt die Rechte ihrer Kunden im Schadensfall falsch, unvollständig oder irreführend dar. Das ist kein Zufall. Das ist ein Geschäftsmodell.</p>
+    </div>
+
+    <p>§ 435 HGB, der Paragraph, der bei qualifiziertem Verschulden alle Haftungsgrenzen sprengt, wird systematisch verschwiegen. Stattdessen wird die Transportversicherung als einziger Weg zum vollen Schutz verkauft. Die Kunden zahlen für etwas, das ihnen in vielen Fällen sowieso zusteht.</p>
+
+    <div class="stats">
+        <div class="stat">
+            <div class="stat-number">7</div>
+            <div class="stat-label">Plattformen analysiert</div>
+        </div>
+        <div class="stat">
+            <div class="stat-number">40+</div>
+            <div class="stat-label">Klauseln dokumentiert</div>
+        </div>
+        <div class="stat">
+            <div class="stat-number">0</div>
+            <div class="stat-label">Die § 435 HGB korrekt darstellen</div>
+        </div>
+    </div>
+
+    <h2>Was ich jetzt tue</h2>
+
+    <p>Ich veröffentliche meine Analysen. Jede AGB-Klausel, die Kundenrechte einschränkt, wird zitiert, dem Gesetz gegenübergestellt und bewertet. Alles öffentlich, alles nachprüfbar, alles meine persönliche Einschätzung.</p>
+
+    <p>Und ich kaufe Forderungen. Wenn Sie einen Transportschaden haben und die Spedition zahlt nicht oder zu wenig, dann kaufe ich Ihnen die Forderung ab. Sie bekommen sofort Geld. Ich übernehme die Durchsetzung. Das ist mein Geschäftsmodell, und ich bin transparent darüber.</p>
+
+    <p>Ja, ich verdiene damit Geld. Und ja, meine Analysen helfen dabei, dass Geschädigte auf mich aufmerksam werden. Das eine schließt das andere nicht aus. Meine Analysen sind trotzdem sachlich, belegt und nachprüfbar. Jedes Zitat stammt von der Website des jeweiligen Unternehmens. Jeder Paragraph existiert.</p>
+
+    <h2>Was mich antreibt</h2>
+
+    <p>Die Logistikbranche hat ein Informationsproblem. Nicht weil die Gesetze kompliziert wären, sondern weil die Unternehmen ein Interesse daran haben, dass ihre Kunden sie nicht kennen. Wer nicht weiß, dass § 435 HGB existiert, akzeptiert 50 Euro auf einen Schaden von 10.000 Euro. Wer nicht weiß, dass die Beweislast beim Frachtführer liegt, gibt bei der ersten Ablehnung auf.</p>
+
+    <p>Ich finde, das muss sich ändern. Nicht durch Gesetze, die gibt es schon. Sondern durch Transparenz. Durch jemanden, der die AGB liest, die Paragraphen kennt und das Ergebnis veröffentlicht. Das ist meine Rolle.</p>
+
+    <div class="cta-box">
+        <h3>Transportschaden?</h3>
+        <p>Melden Sie Ihren Fall. Kostenlos, unverbindlich, diskret. Wenn ich Ihre Forderung kaufe, bekommen Sie sofort Geld.</p>
+        <a href="/#formular" class="cta-btn">Fall jetzt melden →</a>
+    </div>
+
+    <!-- CROSS LINKS -->
+    <h2>Meine Analysen</h2>
+
+    <p>
+        <a href="/blog/cargoboard-erfahrung-transportschaden.html">Cargoboard: 11 Fehler auf drei Seiten →</a><br>
+        <a href="/blog/cargoboard-agb-analyse.html">Cargoboard AGB: 7 problematische Klauseln →</a><br>
+        <a href="/blog/pamyra-erfahrung-transportschaden.html">Pamyra: 5 Fehler auf der Transportschaden-Seite →</a><br>
+        <a href="/blog/cargo-international-erfahrung-agb-analyse.html">Cargo International: 6 problematische AGB-Klauseln →</a><br>
+        <a href="/blog/jumingo-erfahrung-agb-analyse.html">JUMiNGO AGB: 8 Klauseln, zwei Rechtsordnungen →</a><br>
+        <a href="/blog/koch-international-erfahrung-agb-analyse.html">Koch International: 6 AGB-Klauseln, Versicherung ersetzt Haftung →</a><br>
+        <a href="/blog/transportschaden-rechte-ratgeber.html">Ratgeber: Ihre Rechte als Versender →</a>
+    </p>
+
+    <div class="article-footer">
+        <div class="footer-links">
+            <a href="/">Startseite</a>
+            <a href="/#formular">Forderung melden</a>
+            <a href="/impressum.html">Impressum</a>
+            <a href="/datenschutz.html">Datenschutz</a>
+        </div>
+    </div>
+</article>
+
+</body>
+</html>
