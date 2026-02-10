@@ -1,0 +1,970 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Transportschaden? Versicherung zahlt nicht? Wir kaufen Ihre Forderung. Sofort Geld, null Risiko, null Aufwand.">
+    <meta name="keywords" content="Transportschaden, Forderung verkaufen, Cargoboard Schaden, Spedition Schaden, Transportversicherung zahlt nicht, Fracht Schaden Entschädigung">
+    <title>Transportschaden? Wir kaufen Ihre Forderung. | transportschaden-geld.de</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;0,9..40,600;0,9..40,700;1,9..40,400&family=Instrument+Serif:ital@0;1&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --bg: #0C0F0E;
+            --bg-card: #151A18;
+            --bg-card-hover: #1A201E;
+            --accent: #2ECC71;
+            --accent-dim: rgba(46, 204, 113, 0.15);
+            --accent-glow: rgba(46, 204, 113, 0.08);
+            --text: #E8EDE9;
+            --text-dim: #8A9B8E;
+            --text-mid: #B4C4B8;
+            --border: #2A332D;
+            --danger: #E74C3C;
+            --white: #FFFFFF;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: 'DM Sans', sans-serif;
+            background: var(--bg);
+            color: var(--text);
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+
+        /* --- NAV --- */
+        nav {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            z-index: 100;
+            padding: 1.2rem 2rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            background: rgba(12, 15, 14, 0.85);
+            backdrop-filter: blur(20px);
+            border-bottom: 1px solid var(--border);
+        }
+
+        .logo {
+            font-family: 'DM Sans', sans-serif;
+            font-weight: 700;
+            font-size: 1.1rem;
+            color: var(--text);
+            letter-spacing: -0.02em;
+        }
+
+        .logo span {
+            color: var(--accent);
+        }
+
+        nav a {
+            background: var(--accent);
+            color: var(--bg);
+            text-decoration: none;
+            padding: 0.6rem 1.4rem;
+            border-radius: 6px;
+            font-weight: 600;
+            font-size: 0.85rem;
+            transition: all 0.2s;
+        }
+
+        nav a:hover {
+            background: #27AE60;
+            transform: translateY(-1px);
+        }
+
+        /* --- HERO --- */
+        .hero {
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            padding: 8rem 2rem 4rem;
+            max-width: 900px;
+            margin: 0 auto;
+            position: relative;
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 600px;
+            height: 600px;
+            background: radial-gradient(circle, var(--accent-glow) 0%, transparent 70%);
+            pointer-events: none;
+        }
+
+        .badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            background: var(--accent-dim);
+            border: 1px solid rgba(46, 204, 113, 0.25);
+            padding: 0.4rem 1rem;
+            border-radius: 100px;
+            font-size: 0.8rem;
+            color: var(--accent);
+            font-weight: 500;
+            margin-bottom: 2rem;
+            width: fit-content;
+            animation: fadeIn 0.6s ease-out;
+        }
+
+        .badge::before {
+            content: '';
+            width: 6px;
+            height: 6px;
+            background: var(--accent);
+            border-radius: 50%;
+            animation: pulse 2s infinite;
+        }
+
+        @keyframes pulse {
+            0%, 100% { opacity: 1; }
+            50% { opacity: 0.4; }
+        }
+
+        h1 {
+            font-family: 'Instrument Serif', serif;
+            font-size: clamp(2.8rem, 6vw, 4.5rem);
+            line-height: 1.1;
+            font-weight: 400;
+            margin-bottom: 1.5rem;
+            color: var(--white);
+            animation: fadeIn 0.6s ease-out 0.1s both;
+        }
+
+        h1 em {
+            font-style: italic;
+            color: var(--accent);
+        }
+
+        .hero-sub {
+            font-size: 1.15rem;
+            color: var(--text-mid);
+            max-width: 600px;
+            margin-bottom: 2.5rem;
+            animation: fadeIn 0.6s ease-out 0.2s both;
+        }
+
+        .hero-cta {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.6rem;
+            background: var(--accent);
+            color: var(--bg);
+            text-decoration: none;
+            padding: 1rem 2rem;
+            border-radius: 8px;
+            font-weight: 700;
+            font-size: 1rem;
+            transition: all 0.25s;
+            animation: fadeIn 0.6s ease-out 0.3s both;
+            width: fit-content;
+        }
+
+        .hero-cta:hover {
+            background: #27AE60;
+            transform: translateY(-2px);
+            box-shadow: 0 8px 30px rgba(46, 204, 113, 0.25);
+        }
+
+        .hero-cta svg {
+            transition: transform 0.2s;
+        }
+
+        .hero-cta:hover svg {
+            transform: translateX(3px);
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(15px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        /* --- SOCIAL PROOF BAR --- */
+        .proof-bar {
+            border-top: 1px solid var(--border);
+            border-bottom: 1px solid var(--border);
+            padding: 2rem 0;
+        }
+
+        .proof-inner {
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 0 2rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            gap: 2rem;
+            flex-wrap: wrap;
+        }
+
+        .proof-item {
+            text-align: center;
+        }
+
+        .proof-number {
+            font-family: 'Instrument Serif', serif;
+            font-size: 2rem;
+            color: var(--accent);
+            line-height: 1;
+        }
+
+        .proof-label {
+            font-size: 0.8rem;
+            color: var(--text-dim);
+            margin-top: 0.3rem;
+        }
+
+        /* --- SO FUNKTIONIERTS --- */
+        .steps {
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 6rem 2rem;
+        }
+
+        .section-label {
+            font-size: 0.75rem;
+            text-transform: uppercase;
+            letter-spacing: 0.15em;
+            color: var(--accent);
+            font-weight: 600;
+            margin-bottom: 0.8rem;
+        }
+
+        h2 {
+            font-family: 'Instrument Serif', serif;
+            font-size: clamp(2rem, 4vw, 2.8rem);
+            font-weight: 400;
+            color: var(--white);
+            margin-bottom: 3rem;
+            line-height: 1.15;
+        }
+
+        .steps-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 1.5rem;
+        }
+
+        .step {
+            background: var(--bg-card);
+            border: 1px solid var(--border);
+            border-radius: 12px;
+            padding: 2rem 1.5rem;
+            transition: all 0.3s;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .step:hover {
+            background: var(--bg-card-hover);
+            border-color: rgba(46, 204, 113, 0.3);
+            transform: translateY(-3px);
+        }
+
+        .step-num {
+            font-family: 'Instrument Serif', serif;
+            font-size: 3rem;
+            color: var(--accent);
+            opacity: 0.3;
+            line-height: 1;
+            margin-bottom: 1rem;
+        }
+
+        .step h3 {
+            font-size: 1.1rem;
+            font-weight: 600;
+            margin-bottom: 0.6rem;
+            color: var(--white);
+        }
+
+        .step p {
+            font-size: 0.9rem;
+            color: var(--text-dim);
+            line-height: 1.5;
+        }
+
+        /* --- WELCHE FÄLLE --- */
+        .cases {
+            background: var(--bg-card);
+            border-top: 1px solid var(--border);
+            border-bottom: 1px solid var(--border);
+        }
+
+        .cases-inner {
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 6rem 2rem;
+        }
+
+        .cases-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 2rem;
+        }
+
+        .case-col h3 {
+            font-size: 1rem;
+            font-weight: 600;
+            margin-bottom: 1.2rem;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .case-col.yes h3 { color: var(--accent); }
+        .case-col.no h3 { color: var(--danger); }
+
+        .case-col ul {
+            list-style: none;
+        }
+
+        .case-col ul li {
+            padding: 0.5rem 0;
+            font-size: 0.9rem;
+            color: var(--text-mid);
+            border-bottom: 1px solid var(--border);
+            display: flex;
+            align-items: flex-start;
+            gap: 0.6rem;
+        }
+
+        .case-col ul li:last-child {
+            border-bottom: none;
+        }
+
+        .case-col.yes ul li::before {
+            content: '✓';
+            color: var(--accent);
+            font-weight: 700;
+            flex-shrink: 0;
+        }
+
+        .case-col.no ul li::before {
+            content: '✗';
+            color: var(--danger);
+            font-weight: 700;
+            flex-shrink: 0;
+        }
+
+        /* --- FORMULAR --- */
+        .form-section {
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 6rem 2rem;
+        }
+
+        .form-container {
+            background: var(--bg-card);
+            border: 1px solid var(--border);
+            border-radius: 16px;
+            padding: 3rem;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .form-container::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 3px;
+            background: linear-gradient(90deg, var(--accent), rgba(46, 204, 113, 0.2));
+        }
+
+        .form-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 1.2rem;
+        }
+
+        .form-group {
+            display: flex;
+            flex-direction: column;
+            gap: 0.4rem;
+        }
+
+        .form-group.full {
+            grid-column: 1 / -1;
+        }
+
+        label {
+            font-size: 0.8rem;
+            font-weight: 500;
+            color: var(--text-dim);
+            text-transform: uppercase;
+            letter-spacing: 0.08em;
+        }
+
+        input, select, textarea {
+            background: var(--bg);
+            border: 1px solid var(--border);
+            border-radius: 8px;
+            padding: 0.85rem 1rem;
+            color: var(--text);
+            font-family: 'DM Sans', sans-serif;
+            font-size: 0.95rem;
+            transition: all 0.2s;
+            outline: none;
+        }
+
+        input:focus, select:focus, textarea:focus {
+            border-color: var(--accent);
+            box-shadow: 0 0 0 3px var(--accent-dim);
+        }
+
+        input::placeholder, textarea::placeholder {
+            color: var(--text-dim);
+            opacity: 0.5;
+        }
+
+        select {
+            cursor: pointer;
+            appearance: none;
+            background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' viewBox='0 0 12 12'%3E%3Cpath fill='%238A9B8E' d='M6 8L1 3h10z'/%3E%3C/svg%3E");
+            background-repeat: no-repeat;
+            background-position: right 1rem center;
+            padding-right: 2.5rem;
+        }
+
+        select option {
+            background: var(--bg-card);
+            color: var(--text);
+        }
+
+        textarea {
+            resize: vertical;
+            min-height: 80px;
+        }
+
+        .submit-btn {
+            grid-column: 1 / -1;
+            background: var(--accent);
+            color: var(--bg);
+            border: none;
+            padding: 1rem 2rem;
+            border-radius: 8px;
+            font-family: 'DM Sans', sans-serif;
+            font-size: 1rem;
+            font-weight: 700;
+            cursor: pointer;
+            transition: all 0.25s;
+            margin-top: 0.5rem;
+        }
+
+        .submit-btn:hover {
+            background: #27AE60;
+            transform: translateY(-2px);
+            box-shadow: 0 8px 30px rgba(46, 204, 113, 0.25);
+        }
+
+        .form-note {
+            grid-column: 1 / -1;
+            text-align: center;
+            font-size: 0.78rem;
+            color: var(--text-dim);
+            margin-top: 0.5rem;
+        }
+
+        /* --- FAQ --- */
+        .faq {
+            background: var(--bg-card);
+            border-top: 1px solid var(--border);
+        }
+
+        .faq-inner {
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 6rem 2rem;
+        }
+
+        .faq-item {
+            border-bottom: 1px solid var(--border);
+            padding: 1.5rem 0;
+        }
+
+        .faq-question {
+            font-weight: 600;
+            color: var(--white);
+            cursor: pointer;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            font-size: 1rem;
+            user-select: none;
+        }
+
+        .faq-question::after {
+            content: '+';
+            font-size: 1.4rem;
+            color: var(--accent);
+            font-weight: 300;
+            transition: transform 0.3s;
+            flex-shrink: 0;
+            margin-left: 1rem;
+        }
+
+        .faq-item.open .faq-question::after {
+            transform: rotate(45deg);
+        }
+
+        .faq-answer {
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.3s ease-out, padding 0.3s;
+            font-size: 0.9rem;
+            color: var(--text-dim);
+            line-height: 1.6;
+        }
+
+        .faq-item.open .faq-answer {
+            max-height: 300px;
+            padding-top: 1rem;
+        }
+
+        /* --- FOOTER --- */
+        footer {
+            border-top: 1px solid var(--border);
+            padding: 3rem 2rem;
+            max-width: 900px;
+            margin: 0 auto;
+        }
+
+        .footer-top {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+            margin-bottom: 2rem;
+            gap: 2rem;
+            flex-wrap: wrap;
+        }
+
+        .footer-brand {
+            font-family: 'DM Sans', sans-serif;
+            font-weight: 700;
+            font-size: 1rem;
+            color: var(--text);
+            margin-bottom: 0.5rem;
+        }
+
+        .footer-brand span {
+            color: var(--accent);
+        }
+
+        .footer-tagline {
+            font-size: 0.85rem;
+            color: var(--text-dim);
+        }
+
+        .footer-contact p {
+            font-size: 0.85rem;
+            color: var(--text-dim);
+            line-height: 1.8;
+        }
+
+        .footer-contact a {
+            color: var(--accent);
+            text-decoration: none;
+        }
+
+        .footer-contact a:hover {
+            text-decoration: underline;
+        }
+
+        .footer-legal {
+            border-top: 1px solid var(--border);
+            padding-top: 2rem;
+        }
+
+        .impressum {
+            font-size: 0.75rem;
+            color: var(--text-dim);
+            line-height: 1.8;
+        }
+
+        .impressum strong {
+            color: var(--text-mid);
+            font-weight: 500;
+        }
+
+        .copyright {
+            font-size: 0.75rem;
+            color: var(--text-dim);
+            margin-top: 1.5rem;
+            opacity: 0.6;
+        }
+
+        /* --- RESPONSIVE --- */
+        @media (max-width: 768px) {
+            nav {
+                padding: 1rem 1.2rem;
+            }
+
+            .hero {
+                padding: 7rem 1.5rem 3rem;
+            }
+
+            .proof-inner {
+                justify-content: center;
+                gap: 1.5rem;
+            }
+
+            .steps-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .cases-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .form-container {
+                padding: 2rem 1.5rem;
+            }
+
+            .form-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .form-group.full {
+                grid-column: 1;
+            }
+
+            .submit-btn {
+                grid-column: 1;
+            }
+
+            .form-note {
+                grid-column: 1;
+            }
+
+            .footer-top {
+                flex-direction: column;
+            }
+        }
+
+        /* --- DATENSCHUTZ / IMPRESSUM MODAL --- */
+        .legal-links {
+            display: flex;
+            gap: 1.5rem;
+            margin-top: 1rem;
+        }
+
+        .legal-links a {
+            font-size: 0.75rem;
+            color: var(--text-dim);
+            text-decoration: none;
+        }
+
+        .legal-links a:hover {
+            color: var(--accent);
+        }
+
+        /* Success message */
+        .success-msg {
+            display: none;
+            text-align: center;
+            padding: 3rem 2rem;
+        }
+
+        .success-msg h3 {
+            font-family: 'Instrument Serif', serif;
+            font-size: 1.8rem;
+            color: var(--accent);
+            margin-bottom: 1rem;
+        }
+
+        .success-msg p {
+            color: var(--text-mid);
+            font-size: 1rem;
+        }
+    </style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav>
+    <div class="logo">transportschaden<span>-geld</span>.de</div>
+    <a href="#formular">Forderung melden →</a>
+</nav>
+
+<!-- HERO -->
+<section class="hero">
+    <div class="badge">Spezialisiert auf Transportschäden</div>
+    <h1>Ware beschädigt?<br>Sendung verloren?<br><em>Wir zahlen.</em></h1>
+    <p class="hero-sub">Wir kaufen Ihre Transportschadensforderung. Sie bekommen sofort Geld. Kein Anwalt, kein Prozess, kein Risiko. Wir übernehmen alles.</p>
+    <a href="#formular" class="hero-cta">
+        Jetzt Forderung melden
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+    </a>
+</section>
+
+<!-- PROOF BAR -->
+<div class="proof-bar">
+    <div class="proof-inner">
+        <div class="proof-item">
+            <div class="proof-number">48h</div>
+            <div class="proof-label">Angebot nach Prüfung</div>
+        </div>
+        <div class="proof-item">
+            <div class="proof-number">0 €</div>
+            <div class="proof-label">Kosten für Sie</div>
+        </div>
+        <div class="proof-item">
+            <div class="proof-number">0 %</div>
+            <div class="proof-label">Risiko für Sie</div>
+        </div>
+        <div class="proof-item">
+            <div class="proof-number">100 %</div>
+            <div class="proof-label">Wir übernehmen alles</div>
+        </div>
+    </div>
+</div>
+
+<!-- SO FUNKTIONIERTS -->
+<section class="steps">
+    <div class="section-label">So funktioniert's</div>
+    <h2>In drei Schritten zu Ihrem Geld</h2>
+    <div class="steps-grid">
+        <div class="step">
+            <div class="step-num">01</div>
+            <h3>Fall melden</h3>
+            <p>Füllen Sie das Formular aus. Firma, Plattform, Warenwert, was passiert ist. Dauert 2 Minuten.</p>
+        </div>
+        <div class="step">
+            <div class="step-num">02</div>
+            <h3>Angebot erhalten</h3>
+            <p>Wir prüfen Ihren Fall und machen Ihnen innerhalb von 48 Stunden ein konkretes Kaufangebot für Ihre Forderung.</p>
+        </div>
+        <div class="step">
+            <div class="step-num">03</div>
+            <h3>Geld bekommen</h3>
+            <p>Sie unterschreiben die Abtretung, wir überweisen den Kaufpreis. Fertig. Um den Rest kümmern wir uns.</p>
+        </div>
+    </div>
+</section>
+
+<!-- WELCHE FÄLLE -->
+<section class="cases">
+    <div class="cases-inner">
+        <div class="section-label">Welche Fälle</div>
+        <h2>Das übernehmen wir</h2>
+        <div class="cases-grid">
+            <div class="case-col yes">
+                <h3>✓ Interessant für uns</h3>
+                <ul>
+                    <li>Ware bei Transport beschädigt oder zerstört</li>
+                    <li>Sendung verloren oder nicht auffindbar</li>
+                    <li>Versicherung zahlt nicht oder nur teilweise</li>
+                    <li>Spedition bietet nur Haftungshöchstbetrag an</li>
+                    <li>Warenwert ab 2.000 € aufwärts</li>
+                    <li>Gewerblicher Versand (B2B)</li>
+                    <li>Verspätung mit konkretem Folgeschaden</li>
+                </ul>
+            </div>
+            <div class="case-col no">
+                <h3>✗ Nicht für uns</h3>
+                <ul>
+                    <li>Privatversand ohne Rechnung</li>
+                    <li>Schäden unter 2.000 € Warenwert</li>
+                    <li>Vergleich bereits unterschrieben</li>
+                    <li>Forderung bereits verjährt (älter als 1 Jahr)</li>
+                    <li>Reine Reparaturschäden (Ware noch nutzbar)</li>
+                    <li>Kein Wertnachweis vorhanden</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- FORMULAR -->
+<section class="form-section" id="formular">
+    <div class="section-label">Jetzt melden</div>
+    <h2>Forderung eingeben</h2>
+    <div class="form-container">
+        <form id="claim-form" class="form-grid" action="https://formsubmit.co/info@montitech.de" method="POST">
+            <!-- FormSubmit Konfiguration -->
+            <input type="hidden" name="_subject" value="Neue Forderung über transportschaden-geld.de">
+            <input type="hidden" name="_captcha" value="false">
+            <input type="hidden" name="_template" value="table">
+            <input type="hidden" name="_next" value="#">
+            <input type="text" name="_honey" style="display:none">
+
+            <div class="form-group">
+                <label for="firma">Firma / Name</label>
+                <input type="text" id="firma" name="Firma" placeholder="Ihre Firma oder Ihr Name" required>
+            </div>
+
+            <div class="form-group">
+                <label for="email">E-Mail</label>
+                <input type="email" id="email" name="Email" placeholder="ihre@email.de" required>
+            </div>
+
+            <div class="form-group">
+                <label for="plattform">Frachtplattform / Spediteur</label>
+                <select id="plattform" name="Plattform" required>
+                    <option value="" disabled selected>Bitte wählen</option>
+                    <option value="Cargoboard">Cargoboard</option>
+                    <option value="iloxx">iloxx</option>
+                    <option value="JUMiNGO">JUMiNGO</option>
+                    <option value="Saloodo">Saloodo</option>
+                    <option value="Pamyra">Pamyra</option>
+                    <option value="InstaFreight">InstaFreight</option>
+                    <option value="UPS">UPS</option>
+                    <option value="DHL Freight">DHL Freight</option>
+                    <option value="DB Schenker">DB Schenker</option>
+                    <option value="Andere">Andere Spedition</option>
+                </select>
+            </div>
+
+            <div class="form-group">
+                <label for="warenwert">Ungefährer Warenwert (€)</label>
+                <input type="text" id="warenwert" name="Warenwert" placeholder="z.B. 5.000" required>
+            </div>
+
+            <div class="form-group full">
+                <label for="beschreibung">Was ist passiert?</label>
+                <textarea id="beschreibung" name="Beschreibung" placeholder="Kurze Beschreibung: Was wurde versendet, was wurde beschädigt/verloren, wann ist es passiert?" required></textarea>
+            </div>
+
+            <button type="submit" class="submit-btn">Forderung absenden →</button>
+
+            <p class="form-note">Ihre Daten werden vertraulich behandelt. Wir melden uns innerhalb von 48 Stunden mit einer Einschätzung.</p>
+        </form>
+
+        <div class="success-msg" id="success">
+            <h3>Erfolgreich gesendet ✓</h3>
+            <p>Vielen Dank! Wir prüfen Ihren Fall und melden uns innerhalb von 48 Stunden bei Ihnen.</p>
+        </div>
+    </div>
+</section>
+
+<!-- FAQ -->
+<section class="faq">
+    <div class="faq-inner">
+        <div class="section-label">Häufige Fragen</div>
+        <h2>Das wollen unsere Kunden wissen</h2>
+
+        <div class="faq-item">
+            <div class="faq-question">Was bedeutet „Forderung kaufen"?</div>
+            <div class="faq-answer">Wir kaufen Ihnen Ihren Anspruch gegen die Spedition oder Frachtplattform ab. Sie bekommen sofort einen Kaufpreis, unabhängig davon, ob wir die Forderung am Ende durchsetzen können. Das Risiko liegt komplett bei uns.</div>
+        </div>
+
+        <div class="faq-item">
+            <div class="faq-question">Was kostet mich das?</div>
+            <div class="faq-answer">Nichts. Sie erhalten einen Kaufpreis für Ihre Forderung. Es gibt keine versteckten Kosten, keine Gebühren, keine Erfolgsbeteiligung. Der Kaufpreis ist Ihr Geld, und den Rest übernehmen wir.</div>
+        </div>
+
+        <div class="faq-item">
+            <div class="faq-question">Wie hoch ist der Kaufpreis?</div>
+            <div class="faq-answer">Das hängt vom Einzelfall ab: Warenwert, Beweislage, Gegenseite. In der Regel erhalten Sie einen Anteil des Warenwerts sofort ausgezahlt. Das genaue Angebot machen wir Ihnen nach Prüfung der Unterlagen.</div>
+        </div>
+
+        <div class="faq-item">
+            <div class="faq-question">Meine Versicherung hat abgelehnt. Ist der Fall trotzdem relevant?</div>
+            <div class="faq-answer">Ja, oft sogar besonders. Die Transportversicherung und die gesetzliche Frachtführerhaftung sind zwei verschiedene Dinge. Auch wenn die Versicherung ablehnt, kann der Frachtführer trotzdem voll haften. Genau darauf sind wir spezialisiert.</div>
+        </div>
+
+        <div class="faq-item">
+            <div class="faq-question">Ich habe nur den „Haftungshöchstbetrag" angeboten bekommen. Lohnt sich das trotzdem?</div>
+            <div class="faq-answer">Oft ja. Die gesetzlichen Haftungsgrenzen können unter bestimmten Voraussetzungen vollständig entfallen, zum Beispiel bei grobem Organisationsverschulden des Frachtführers. In solchen Fällen haftet die Gegenseite für den vollen Warenwert, nicht nur für den Cap.</div>
+        </div>
+
+        <div class="faq-item">
+            <div class="faq-question">Schadet das meiner Geschäftsbeziehung mit dem Spediteur?</div>
+            <div class="faq-answer">Nein. Nach dem Kauf gehört die Forderung uns, nicht mehr Ihnen. Wir treten als eigenständiger Forderungsinhaber auf. Ihre Geschäftsbeziehung bleibt unberührt.</div>
+        </div>
+
+        <div class="faq-item">
+            <div class="faq-question">Welche Unterlagen brauche ich?</div>
+            <div class="faq-answer">Für die erste Einschätzung reicht das Formular oben. Wenn wir ein Angebot machen, benötigen wir: Rechnung oder Wertnachweis der Ware, Buchungsbestätigung oder Sendungsnummer, ggf. Fotos und bisherige Korrespondenz mit der Gegenseite.</div>
+        </div>
+    </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+    <div class="footer-top">
+        <div>
+            <div class="footer-brand">transportschaden<span>-geld</span>.de</div>
+            <p class="footer-tagline">Wir kaufen Transportschadensforderungen.</p>
+        </div>
+        <div class="footer-contact">
+            <p>
+                <a href="mailto:info@montitech.de">info@montitech.de</a><br>
+                <a href="#formular">Forderung melden →</a>
+            </p>
+        </div>
+    </div>
+    <div class="footer-legal">
+        <div class="impressum">
+            <strong>Impressum</strong><br>
+            Monti Technology GmbH<br>
+            Geschäftsführer: Thomas Kiene<br>
+            Im Roggesch 10c, 49635 Badbergen<br>
+            E-Mail: <a href="mailto:info@montitech.de" style="color: var(--accent); text-decoration: none;">info@montitech.de</a>
+        </div>
+        <div class="legal-links">
+            <a href="#">Datenschutz</a>
+            <a href="#">Impressum</a>
+        </div>
+        <p class="copyright">© 2026 Monti Technology GmbH. Alle Rechte vorbehalten.</p>
+    </div>
+</footer>
+
+<script>
+    // FAQ Accordion
+    document.querySelectorAll('.faq-question').forEach(q => {
+        q.addEventListener('click', () => {
+            const item = q.parentElement;
+            const isOpen = item.classList.contains('open');
+            // Close all
+            document.querySelectorAll('.faq-item').forEach(i => i.classList.remove('open'));
+            // Toggle current
+            if (!isOpen) item.classList.add('open');
+        });
+    });
+
+    // Smooth scroll for nav
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+        anchor.addEventListener('click', function (e) {
+            e.preventDefault();
+            const target = document.querySelector(this.getAttribute('href'));
+            if (target) {
+                target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+            }
+        });
+    });
+
+    // Form submission handling
+    const form = document.getElementById('claim-form');
+    const successMsg = document.getElementById('success');
+
+    // Check if redirected back after submission
+    if (window.location.hash === '#success') {
+        form.style.display = 'none';
+        successMsg.style.display = 'block';
+    }
+</script>
+
+</body>
+</html>
