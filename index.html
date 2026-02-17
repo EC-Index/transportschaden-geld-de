@@ -1497,12 +1497,12 @@
     <div class="section-label">Jetzt melden</div>
     <h2>Forderung eingeben</h2>
     <div class="form-container">
-        <form id="claim-form" class="form-grid" action="https://formsubmit.co/kontakt@transportschaden-geld.de" method="POST">
+        <form id="claim-form" class="form-grid" action="https://formsubmit.co/kontakt@transportschaden-geld.de" method="POST" enctype="multipart/form-data">
             <!-- FormSubmit Konfiguration -->
             <input type="hidden" name="_subject" value="Neue Forderung über transportschaden-geld.de">
             <input type="hidden" name="_captcha" value="false">
             <input type="hidden" name="_template" value="table">
-            <input type="hidden" name="_next" value="#">
+            <input type="hidden" name="_next" value="https://transportschaden-geld.de/#success">
             <input type="text" name="_honey" style="display:none">
 
             <div class="form-group">
@@ -1542,15 +1542,11 @@
             </div>
 
             <div class="form-group">
-                <label for="warenwert">Geschätzter Schadenwert</label>
-                <select id="warenwert" name="Schadenwert" required>
-                    <option value="" disabled selected>Bitte wählen</option>
-                    <option value="Unter 500 €">Unter 500 €</option>
-                    <option value="500 – 2.000 €">500 – 2.000 €</option>
-                    <option value="2.000 – 10.000 €">2.000 – 10.000 €</option>
-                    <option value="10.000 – 50.000 €">10.000 – 50.000 €</option>
-                    <option value="Über 50.000 €">Über 50.000 €</option>
-                </select>
+                <label for="warenwert">Schadenwert in €</label>
+                <div style="position: relative;">
+                    <input type="number" id="warenwert" name="Schadenwert" placeholder="z. B. 3500" min="1" step="1" required style="padding-right: 2.5rem;">
+                    <span style="position: absolute; right: 1rem; top: 50%; transform: translateY(-50%); color: var(--text-dim); font-size: 0.95rem; pointer-events: none;">€</span>
+                </div>
             </div>
 
             <div class="form-group">
@@ -1596,6 +1592,12 @@
                 </div>
             </div>
 
+            <div class="form-group full">
+                <label for="fotos">Fotos des Schadens (optional)</label>
+                <input type="file" id="fotos" name="attachment" accept="image/*" multiple style="font-size: 0.85rem; padding: 0.65rem 0.8rem; cursor: pointer;">
+                <span style="font-size: 0.75rem; color: var(--text-dim); margin-top: 0.2rem;">Mehrere Bilder möglich. JPG, PNG, max. 5 MB pro Bild.</span>
+            </div>
+
             <div class="form-group full consent-group">
                 <label class="checkbox-label">
                     <input type="checkbox" id="consent" name="Einwilligung" value="Ja" required>
@@ -1611,6 +1613,16 @@
         <div class="success-msg" id="success">
             <h3>Erfolgreich gesendet ✓</h3>
             <p>Vielen Dank! Wir melden uns innerhalb von 48 Stunden bei Ihnen mit einem Kaufangebot oder einer Rückmeldung.</p>
+        </div>
+
+        <!-- Grünes Success-Popup -->
+        <div id="success-popup" style="display:none; position:fixed; inset:0; z-index:9999; background:rgba(0,0,0,0.6); backdrop-filter:blur(4px); justify-content:center; align-items:center;">
+            <div style="background: var(--bg-card); border: 2px solid var(--accent); border-radius: 16px; padding: 3rem 2.5rem; max-width: 500px; width: 90%; text-align: center; position: relative; box-shadow: 0 0 60px rgba(46,204,113,0.3);">
+                <div style="width: 70px; height: 70px; background: var(--accent); border-radius: 50%; display: flex; align-items: center; justify-content: center; margin: 0 auto 1.5rem; font-size: 2rem; color: var(--bg);">✓</div>
+                <h3 style="font-family: 'Instrument Serif', serif; font-size: 1.6rem; color: var(--accent); margin-bottom: 0.8rem;">Anfrage erhalten!</h3>
+                <p style="color: var(--text-mid); font-size: 1rem; line-height: 1.6;">Wir haben Ihre Anfrage erhalten und einer unserer Experten wird sich umgehend bei Ihnen melden.</p>
+                <button onclick="closeSuccessPopup()" style="margin-top: 1.5rem; background: var(--accent); color: var(--bg); border: none; padding: 0.8rem 2rem; border-radius: 8px; font-family: 'DM Sans', sans-serif; font-size: 0.95rem; font-weight: 600; cursor: pointer;">Verstanden</button>
+            </div>
         </div>
     </div>
 </section>
@@ -1931,12 +1943,13 @@
     }
 
     // Schadenwert-Filter: Unter 500€ → Hinweis auf paket-weg.de
-    const warenwertSelect = document.getElementById('warenwert');
+    const warenwertInput = document.getElementById('warenwert');
     const kleinfall = document.getElementById('kleinfall-hinweis');
     const submitBtn = document.querySelector('.submit-btn');
-    if (warenwertSelect) {
-        warenwertSelect.addEventListener('change', function() {
-            if (this.value === 'Unter 500 €') {
+    if (warenwertInput) {
+        warenwertInput.addEventListener('input', function() {
+            const val = parseFloat(this.value);
+            if (val > 0 && val < 500) {
                 kleinfall.style.display = 'block';
                 submitBtn.disabled = true;
                 submitBtn.style.opacity = '0.4';
@@ -1950,10 +1963,41 @@
         });
     }
 
-    // Check if redirected back after submission
+    // Form AJAX submission with popup
+    if (form) {
+        form.addEventListener('submit', function(e) {
+            e.preventDefault();
+            const formData = new FormData(form);
+            fetch(form.action, {
+                method: 'POST',
+                body: formData,
+                headers: { 'Accept': 'application/json' }
+            }).then(function(response) {
+                if (response.ok) {
+                    document.getElementById('success-popup').style.display = 'flex';
+                    form.reset();
+                } else {
+                    alert('Es gab ein Problem beim Senden. Bitte versuchen Sie es erneut.');
+                }
+            }).catch(function() {
+                alert('Verbindungsfehler. Bitte versuchen Sie es später erneut.');
+            });
+        });
+    }
+
+    // Close popup function
+    window.closeSuccessPopup = function() {
+        document.getElementById('success-popup').style.display = 'none';
+    };
+
+    // Close popup on background click
+    document.getElementById('success-popup').addEventListener('click', function(e) {
+        if (e.target === this) closeSuccessPopup();
+    });
+
+    // Legacy: Check if redirected back after submission
     if (window.location.hash === '#success') {
-        form.style.display = 'none';
-        successMsg.style.display = 'block';
+        document.getElementById('success-popup').style.display = 'flex';
     }
 </script>
 <!-- COOKIE BANNER -->
