@@ -894,6 +894,8 @@
         /* --- CONSENT CHECKBOX --- */
         .consent-group {
             margin-top: 0.5rem;
+            overflow: visible;
+            min-width: 0;
         }
 
         .checkbox-label {
@@ -906,6 +908,13 @@
             text-transform: none;
             letter-spacing: 0;
             line-height: 1.5;
+            min-width: 0;
+            max-width: 100%;
+        }
+
+        .checkbox-label span {
+            min-width: 0;
+            word-break: break-word;
         }
 
         .checkbox-label input[type="checkbox"] {
