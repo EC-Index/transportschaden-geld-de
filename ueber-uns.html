@@ -71,6 +71,59 @@
             border-bottom: 1px solid var(--border);
         }
 
+        .author-hero {
+            display: flex;
+            align-items: center;
+            gap: 2.5rem;
+            margin-bottom: 3rem;
+            padding-bottom: 2.5rem;
+            border-bottom: 1px solid var(--border);
+        }
+
+        .author-photo {
+            width: 160px;
+            height: 160px;
+            border-radius: 50%;
+            object-fit: cover;
+            border: 3px solid var(--accent);
+            box-shadow: 0 0 30px rgba(46, 204, 113, 0.15);
+            flex-shrink: 0;
+        }
+
+        .author-info h2 {
+            font-family: 'Instrument Serif', serif;
+            font-size: 1.6rem;
+            font-weight: 400;
+            color: var(--white);
+            margin-top: 0;
+            margin-bottom: 0.3rem;
+        }
+
+        .author-info .role {
+            font-size: 0.9rem;
+            color: var(--accent);
+            font-weight: 600;
+            margin-bottom: 0.6rem;
+        }
+
+        .author-info .tagline {
+            font-size: 0.88rem;
+            color: var(--text-dim);
+            line-height: 1.6;
+        }
+
+        @media (max-width: 600px) {
+            .author-hero {
+                flex-direction: column;
+                text-align: center;
+                gap: 1.5rem;
+            }
+            .author-photo {
+                width: 130px;
+                height: 130px;
+            }
+        }
+
         h2 {
             font-family: 'Instrument Serif', serif;
             font-size: 1.6rem;
@@ -217,6 +270,15 @@
 
 <article>
 
+    <div class="author-hero">
+        <img src="/images/thomas-kiene.jpg" alt="Thomas Kiene – Gründer von transportschaden-geld.de" class="author-photo" width="160" height="160">
+        <div class="author-info">
+            <h2>Thomas Kiene</h2>
+            <div class="role">Gründer & Geschäftsführer</div>
+            <div class="tagline">Seit 2013 in der Logistik. eCommerce-Unternehmer. AGB-Analyst. Ich kaufe Transportschadensforderungen, damit Versender nicht auf ihrem Schaden sitzen bleiben.</div>
+        </div>
+    </div>
+
     <h1>Über 10 Jahre Logistik. <em>Jetzt decke ich auf.</em></h1>
 
     <p class="intro">
@@ -280,11 +342,12 @@
     <h2>Meine Analysen</h2>
 
     <p>
+        <a href="/jumingo-transportschaden">JUMiNGO Transportschaden: Warum die Plattform selten zahlt →</a><br>
+        <a href="/blog/jumingo-erfahrung-agb-analyse.html">JUMiNGO AGB: 8 Klauseln, zwei Rechtsordnungen →</a><br>
         <a href="/blog/cargoboard-erfahrung-transportschaden.html">Cargoboard: 11 Fehler auf drei Seiten →</a><br>
         <a href="/blog/cargoboard-agb-analyse.html">Cargoboard AGB: 7 problematische Klauseln →</a><br>
         <a href="/blog/pamyra-erfahrung-transportschaden.html">Pamyra: 5 Fehler auf der Transportschaden-Seite →</a><br>
         <a href="/blog/cargo-international-erfahrung-agb-analyse.html">Cargo International: 6 problematische AGB-Klauseln →</a><br>
-        <a href="/blog/jumingo-erfahrung-agb-analyse.html">JUMiNGO AGB: 8 Klauseln, zwei Rechtsordnungen →</a><br>
         <a href="/blog/koch-international-erfahrung-agb-analyse.html">Koch International: 6 AGB-Klauseln, Versicherung ersetzt Haftung →</a><br>
         <a href="/blog/transportschaden-rechte-ratgeber.html">Ratgeber: Ihre Rechte als Versender →</a>
     </p>
