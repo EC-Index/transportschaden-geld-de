@@ -1,8 +1,28 @@
 {
   "cleanUrls": true,
   "trailingSlash": true,
-  "rewrites": [
-    { "source": "/blog", "destination": "/blog/index.html" },
-    { "source": "/blog/", "destination": "/blog/index.html" }
+  "redirects": [
+    {
+      "source": "/(.*)",
+      "has": [
+        {
+          "type": "host",
+          "value": "transportschaden-geld.de"
+        }
+      ],
+      "destination": "https://schaden-bezahlt.de/$1",
+      "permanent": true
+    },
+    {
+      "source": "/(.*)",
+      "has": [
+        {
+          "type": "host",
+          "value": "www.transportschaden-geld.de"
+        }
+      ],
+      "destination": "https://schaden-bezahlt.de/$1",
+      "permanent": true
+    }
   ]
 }
